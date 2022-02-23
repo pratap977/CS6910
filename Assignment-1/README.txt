@@ -78,7 +78,10 @@ Solution Approach:
 
 Question-5:
 Solution Approach:
-1. 
+
+
+Question-6:
+Solution Approach:
 
 
 
