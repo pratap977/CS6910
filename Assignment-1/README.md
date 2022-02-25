@@ -143,8 +143,7 @@ Class_labels_names =
 + Although transfer learning from the pre trained Fashion MNIST dataset's best model configuration for the digits MNIST dataset is an extremely viable option for faster           training and better initialization of the network, in the current implementation of the code, transfer learning has not been used. 
 
 ## Report:
-Report for this Assignment can be found here.
-https://wandb.ai/pratap49/CS6910-assignment-1/reports/Assignment-1--VmlldzoxNjA0NjQ2
+Report for this Assignment can be found [here](https://wandb.ai/pratap49/CS6910-assignment-1/reports/Assignment-1--VmlldzoxNjA0NjQ2).
 
 ## Authors:
 [pratap](https://github.com/pratap977)\
