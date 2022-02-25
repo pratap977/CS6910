@@ -98,17 +98,7 @@ Class_labels_names =
 
 ## Question-5:
 #### Solution Approach:
-* The best accuracy across all the models is a validation accuracy of 89% and this is obtained for the following setting of hyperparameters:
-         * Learning rate: 0.0055
-         * Mode of initialization: Xavier
-         * Optimizer: Adam
-         * Number of hidden layers:  1
-         * Number of neurons in every hidden layer: 32
-         * lambda for L2 regularization (weight decay): 0.00005
-         * Number of epochs: 15
-         * Batch size: 16
-         * Activation function: Relu
-         * Loss function: ce
+* The best accuracy across all the models is a validation accuracy of 89.95%.
 + The graph containing a summary of validation accuracies for all the models is shown in the wandb report.
 
 
