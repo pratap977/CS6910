@@ -162,6 +162,13 @@ Class_labels_names =
 + Since MNIST is a much simpler dataset, and a very similar image classification task with the same number of classes, the configurations of hyperparameters that worked well        for Fashion-MNIST is expected to work well for MNIST too.
 + Although transfer learning from the pre trained Fashion MNIST dataset's best model configuration for the digits MNIST dataset is an extremely viable option for faster           training and better initialization of the network, in the current implementation of the code, transfer learning has not been used. 
 
+## Report:
+Report for this Assignment can be found here.
+
+## Authors:
+[pratap](https://github.com/pratap977)
+[ganesh](https://github.com/27-ganesh-07)
+
 
 ### Self Declaration:
 CS21M019: (50% contribution)
