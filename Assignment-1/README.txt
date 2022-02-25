@@ -1,4 +1,4 @@
-question-1:
+#question-1:
 There are ten classes in the Fashion-MNIST data set and here is a dictionary relating the model's numerical labels and corresponding class names. 
 Class_labels_names = 
 {       "0": "T-shirt/Top",          "1": "Trouser",
