@@ -15,16 +15,21 @@ We have used Fashion-MNIST dataset.
 + Clone/download this repository.
 + For running in google colab, install wandb using following command - ```!pip install wandb```.
 + For running locally, install wandb using following command.
-
+```
+pip install wandb
+pip install numpy
+pip install keras
+```
 
 # question-1:
-There are ten classes in the Fashion-MNIST data set and here is a dictionary relating the model's numerical labels and corresponding class names. 
-Class_labels_names = 
-{       "0": "T-shirt/Top",          "1": "Trouser",
-         "2": "Pullover",            "3": "Dress",
-        "4": "Coat",                 "5": "Sandal",
-        "6": "Shirt",                "7": "Sneaker",
-        "8": "Bag",                  "9": "Ankle Boot",     }
+There are ten classes in the Fashion-MNIST data set and here is a dictionary relating the model's numerical labels and corresponding class names.\
+<pre> Class_labels_names = 
+{       "0": "T-shirt/Top",         "1": "Trouser",
+        "2": "Pullover",            "3": "Dress",
+        "4": "Coat",                "5": "Sandal",
+        "6": "Shirt",               "7": "Sneaker",
+        "8": "Bag",                 "9": "Ankle Boot",     }
+ <pre>
 ## Solution Approach:
 1. Create an array of available class as ig[].
 2. check each image of our input data belongs to which class.
