@@ -24,10 +24,10 @@ pip install keras
 ## Question-1:
 There are ten classes in the Fashion-MNIST data set and here is a dictionary relating the model's numerical labels and corresponding class names.\
 Class_labels_names = 
-{       "0": "T-shirt/Top",         "1": "Trouser",
-        "2": "Pullover",            "3": "Dress",
-        "4": "Coat",                "5": "Sandal",
-        "6": "Shirt",               "7": "Sneaker",
+{       "0": "T-shirt/Top",         "1": "Trouser", \
+        "2": "Pullover",            "3": "Dress",\
+        "4": "Coat",                "5": "Sandal",\
+        "6": "Shirt",               "7": "Sneaker",\
         "8": "Bag",                 "9": "Ankle Boot",     }
  
 #### Solution Approach:
@@ -89,14 +89,12 @@ Class_labels_names =
     + Bayes
 + By considering the number of parameters given, there are totally 11664 combinations are possible.
 + grid : It checks through all the possible combinations of hyperparameters. If there are n hyperparameters and m options of each hyperparameter. 
-  There will be m^n number of runs to see the final picture, hence grid search strategy wont work beacause it would be a computationally intensive.
-+ random:
-+ Bayesian: 
+  There will be m^n number of runs to see the final picture, hence grid search strategy wont work beacause it would be a computationally intensive. 
 + There are 2 options left to choose.
 + we chose random search. and we obtained a maximum validation accuracy of 88%. #need to update
 + after picking the sweep function, set the sweep function of wandb by setting up the different parameters in sweep configuration i.e, s_config().
-+ By using the code below we can see the results in our wandb project.
-+ wandb.agent(sweep_id,train).
++ By using the code below we can see the results in our wandb project.\
+  ```wandb.agent(sweep_id,train)```.
 
 ## Question-5:
 #### Solution Approach:
@@ -117,36 +115,18 @@ Class_labels_names =
 ## Question-6:
 #### Solution Approach:
 + Adam optimizer has provided the best val_accuracy in the above experiments, that has also reflected positively in the correlation table. Since the images that we are using       are black and white the input is definitely sparse, all the black pixels are represented with 0. So the idea used in rmsprop and adam to manipulate the learning rate             according to past updates, so that b does not undergo many updates in comparison to w checks out.
-+  Small batch size might help to generalize well but may not be able to converge to the global minima. Similarly large batch size may cost us in terms of cost also in terms        generalization.  So we need a batch size that is neither too small or too large this idea also checks out in correlation table with a small positive correlation value for        batch size.
-+ 
++  Small batch size might help to generalize well but may not be able to converge to the global minima. Similarly large batch size may cost us in terms of cost also in terms        generalization.  So we need a batch size that is neither too small or too large this idea also checks out in correlation table with a small positive correlation value for        batch size. 
 
-###### Recommendations to attain 95% accuracy:
+##### Recommendations to attain 95% accuracy:
 + In our assignment, we are using Fashion-MNIST dataset which contains images and we know that convolutional neural networks are good for datasets containing images in comparison to neural networks. 
 + Using a CNN architecture that involves parameter sharing and local connectivity is bound to give improvements on this image classification task. Thus, using convolutional neural networks we can attain accuracy up to 95%. 
 
 ## Question-7:
 #### Solution Approach:
-* Get the best model.
-* Report the best accuracy.
-        * The best model configuration is:
-        * learning_rate:
-        * epochs: 
-        * no_hidden_layer: 
-         * size_hidden_layers
-         * optimizer: 
-         * batch_size:
-         * activation: 
-         * weight_initializations: 
-         * weight_decay: 
-         * loss_function:
-         
++ Get the best model.
++ Report the best accuracy.
 + Implement a function to calculate confusion matrix.
 + Plot and integrate wandb to keep track using wandb.
-
-
-
-
-
 
 ## Question-8:
 #### Solution Approach:
@@ -169,24 +149,6 @@ Report for this Assignment can be found here.
 [pratap](https://github.com/pratap977)\
 [ganesh](https://github.com/27-ganesh-07)
 
-
-### Self Declaration:
-CS21M019: (50% contribution)
-+ Plotted sample images for each class
-+ implemented feed forward neural network 
-+ Implemented loss function Mean squared error
-+ Implemented sgd, adam, nadam
-+ Analysed parallel co-ordinates & wrote inferences
-+ wrote and updated readme file
-+ Added auggestions to obtain 95% accuracy
-
-CS20M000 (50% contribution)
-+ Implemented Back-propogation framework
-+ implemented rmsprop, momentum and nesterov
-+ implemeted activation functions relu, tanh
-+ implemented loss function cross entropy
-+ plotted the confusion matrix, plot comparing the performance cross entropy and mean squared error.
-+ Based on the previous experiments performed in this assignments, suggested hyperparameter sets from mnist datset and reported the performence.
 
 
 
