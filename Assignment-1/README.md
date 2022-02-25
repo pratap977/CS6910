@@ -1,6 +1,21 @@
 # Problem Statement:
-The goal of this Assignment is to implement our own Feed-forward neural network, back-propagation code, and use the gradient descents and its variants with back-propagation for classification task and keep track of our experiments using wandb.ai.
+The goal of this Assignment is to implement our own Feed-forward neural network, back-propagation code, and use the gradient descents and its variants with back-propagation for classification task and keep track of our experiments using [wandb.ai](https://wandb.ai/).<br /> 
 The Assignment can be found [here](https://wandb.ai/miteshk/assignments/reports/Assignment-1--VmlldzozNjk4NDE?accessToken=r7ndsh8lf4wlxyjln7phvvfb8ftvc0n4lyn4tiowdg06hhzpzfzki4jrm28wqh44).
+
+# Prerequisites:
+
+```
+Python 3.7.10
+Numpy 1.19.5
+```
+# Dataset:
+We have used Fashion-MNIST dataset.
+
+# Installing:
++ Clone/download this repository.
++ For running in google colab, install wandb using following command - ```!pip install wandb```.
++ For running locally, install wandb using following command.
+
 
 # question-1:
 There are ten classes in the Fashion-MNIST data set and here is a dictionary relating the model's numerical labels and corresponding class names. 
