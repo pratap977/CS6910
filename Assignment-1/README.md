@@ -111,7 +111,7 @@ Class_labels_names =
          * Batch size: 16
          * Activation function: Relu
          * Loss function: ce
- + The graph containing a summary of validation accuracies for all the models is shown in the wandb report.
++ The graph containing a summary of validation accuracies for all the models is shown in the wandb report.
 
 
 ## Question-6:
@@ -126,12 +126,12 @@ Class_labels_names =
 
 ## Question-7:
 #### Solution Approach:
-+ Get the best model.
+* Get the best model.
 * Report the best accuracy.
         * The best model configuration is:
         * learning_rate:
         * epochs: 
-         * no_hidden_layer: 
+        * no_hidden_layer: 
          * size_hidden_layers
          * optimizer: 
          * batch_size:
