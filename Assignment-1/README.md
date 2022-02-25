@@ -144,6 +144,7 @@ Class_labels_names =
 
 ## Report:
 Report for this Assignment can be found here.
+https://wandb.ai/pratap49/CS6910-assignment-1/reports/Assignment-1--VmlldzoxNjA0NjQ2
 
 ## Authors:
 [pratap](https://github.com/pratap977)\
