@@ -43,7 +43,7 @@ Class_labels_names =
 + Feed-forward neural network (Feed_Frwd_Nw1()) has been implemented which takes in the training dataset(xtrain, ytrain), testing dataset(xtest, ytest), weights, biases,           activation function and loss function.
 + Initialize the randomized weights, biases as per the number of inputs, hidden & output layer specification.
 + Implement loss functions such as:
-        1.cross entropy
+        1. cross entropy
         2. Mean squared error
 + Implement Activation functions such as:
      - sigmoid, tanh, relu...etc
@@ -161,7 +161,25 @@ Class_labels_names =
 #### Solution Approach:
 + Since MNIST is a much simpler dataset, and a very similar image classification task with the same number of classes, the configurations of hyperparameters that worked well        for Fashion-MNIST is expected to work well for MNIST too.
 + Although transfer learning from the pre trained Fashion MNIST dataset's best model configuration for the digits MNIST dataset is an extremely viable option for faster           training and better initialization of the network, in the current implementation of the code, transfer learning has not been used. 
-+ 
+
+
+### Self Declaration:
+CS21M019: (50% contribution)
++ Plotted sample images for each class
++ implemented feed forward neural network 
++ Implemented loss function Mean squared error
++ Implemented sgd, adam, nadam
++ Analysed parallel co-ordinates & wrote inferences
++ wrote and updated readme file
++ Added auggestions to obtain 95% accuracy
+
+CS20M000 (50% contribution)
++ Implemented Back-propogation framework
++ implemented rmsprop, momentum and nesterov
++ implemeted activation functions relu, tanh
++ implemented loss function cross entropy
++ plotted the confusion matrix, plot comparing the performance cross entropy and mean squared error.
++ Based on the previous experiments performed in this assignments, suggested hyperparameter sets from mnist datset and reported the performence.
 
 
 
