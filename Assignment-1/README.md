@@ -91,7 +91,7 @@ Class_labels_names =
 + grid : It checks through all the possible combinations of hyperparameters. If there are n hyperparameters and m options of each hyperparameter. 
   There will be m^n number of runs to see the final picture, hence grid search strategy wont work beacause it would be a computationally intensive. 
 + There are 2 options left to choose.
-+ we chose random search. and we obtained a maximum validation accuracy of 88%. #need to update
++ we chose random search. and we obtained a maximum validation accuracy of 89.95%. 
 + after picking the sweep function, set the sweep function of wandb by setting up the different parameters in sweep configuration i.e, s_config().
 + By using the code below we can see the results in our wandb project.\
   ```wandb.agent(sweep_id,train)```.
