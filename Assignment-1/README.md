@@ -166,7 +166,7 @@ Class_labels_names =
 Report for this Assignment can be found here.
 
 ## Authors:
-[pratap](https://github.com/pratap977)
+[pratap](https://github.com/pratap977)\
 [ganesh](https://github.com/27-ganesh-07)
 
 
