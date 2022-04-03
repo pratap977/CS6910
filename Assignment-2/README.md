@@ -1,136 +1,89 @@
-## Problem Statement:
-The goal of this Assignment is to implement our own Feed-forward neural network, back-propagation code, and use the gradient descents and its variants with back-propagation for classification task and keep track of our experiments using [wandb.ai](https://wandb.ai/).<br /> 
-The Assignment can be found [here](https://wandb.ai/miteshk/assignments/reports/Assignment-1--VmlldzozNjk4NDE?accessToken=r7ndsh8lf4wlxyjln7phvvfb8ftvc0n4lyn4tiowdg06hhzpzfzki4jrm28wqh44).
+## Splitting folders and saving to drive:
++ Intially, As we were given inature_12k.zip which contains train and test data. we unzipped the file and saved to drive at location /content/drive/MyDrive/inaturalist_12K (folder contains two subfolders i.e. train and val where we used val folders data as test data)
++ we further have had split the train folder into trainable data and validation data. we have kept validation and training data in /content/drive/MyDrive/outputfin.
++ we further have used these locations to load the data.
++ we have provided splitting_folders_and_saving_to_drive.ipynb which performs the above task. 
 
-## Prerequisites:
+## Part-A
 
-```
-Python 3.7.10
-Numpy 1.19.5
-```
-## Dataset:
-We have used Fashion-MNIST dataset.
-
-## Installing:
-+ Clone/download this repository.
-+ For running in google colab, install wandb using following command - ```!pip install wandb```.
-+ For running locally, install wandb using following command.
-```
-pip install wandb
-pip install numpy
-pip install keras
-```
-
-## Question-1:
-There are ten classes in the Fashion-MNIST data set and here is a dictionary relating the model's numerical labels and corresponding class names.\
-Class_labels_names = 
-{       "0": "T-shirt/Top",         "1": "Trouser", \
-        "2": "Pullover",            "3": "Dress",\
-        "4": "Coat",                "5": "Sandal",\
-        "6": "Shirt",               "7": "Sneaker",\
-        "8": "Bag",                 "9": "Ankle Boot",     }
- 
-#### Solution Approach:
-+ Create an array of available class as ig[].
-+ check each image of our input data belongs to which class.
-+ Then store that image and remove its class from the available class array.
-+ To get the first image which is 0'th from each class, Iterate through all the images.
-+ Then plot the images.
-+ Integrate wandb to log the images and keep track of the experiment using wandb.ai.
-
-## Question-2:
-#### Solution Approach:
-+ Feed-forward neural network (Feed_Frwd_Nw1()) has been implemented which takes in the training dataset(xtrain, ytrain), testing dataset(xtest, ytest), weights, biases,           activation function and loss function.
-+ Initialize the randomized weights, biases as per the number of inputs, hidden & output layer specification.
-+ Implement loss functions such as:
-        1. cross entropy
-        2. Mean squared error
-+ Implement Activation functions such as:
-     - sigmoid, tanh, relu...etc
-+ our code provides the flexibility in choosing the above mentioned parameters.
-+ and provides flexibility in choosing the number of hidden layers and neurons in each hidden layer.
+#Question-1:
+Initially we prepared a data i.e. Loading the images as arrays.
++ we load the training data contained in /content/drive/MyDrive/outputfin/train into the two arrays i.e. (x_train, y_train)/(x_train_un, y_train_un).
++ x_train contains all the training images but they are forcefully aguemented and y_train contains labels corresponding to the images.
++ x_train_un contains all the training images but they are not aguemented and y_train_un contains labels corresponding to the images.
 
 
-## Question-3:
-* Back propagation algorithm implemented with the support of the following optimization function and the code works for any batch size:
-    * SGD 
-    * Momentum based gradient descent 
-    * Nesterov accelerated gradient descent
-    * RMS Prop
-    * ADAM
-    * NADAM
++ we load the validation data contained in /content/drive/MyDrive/outputfin/val into the two arrays i.e. (x_val, y_val)/(x_val_un, y_val_un).
++ x_val contains all the validation images but they are forcefully aguemented and y_val contains labels corresponding to the images.
++ x_val_un contains all the validation images but they are not aguemented and y_val_un contains labels corresponding to the images.
 
-#### Solution Approach:
-+ Make use of uotput of the feed-forward neural network in the previous question.
-+ Initialize one hot function to encode the labels of images.
-* Implement the activation functions and their gradients.
-    * sgd
-    * softmax
-    * Rel
-    * tanh
-+ Initialize the randomized parameters using the 'random' in python.
-+ Initialize predictions, accuracy and loss functions.
-+ loss functions are:
-    + Mean squared Error
-    + Cross entropy
-+ Initialize the gradient descent functions.
-+ and Initialize the training function to use the above functions.
 
++ we load the test data contained in /content/drive/MyDrive/inaturalist_12K/val into the two arrays i.e. (x_test, y_test)/(x_test_un, y_test_un).
++ x_test contains all the testing images but they are forcefully aguemented and y_train contains labels corresponding to the images.
++ x_test_un contains all the testing images but they are not aguemented and y_test_un contains labels corresponding to the images.
+
+
+## The loading of data is done by the following function:
+# function for prepating data takes two parameters
++ 1.drive_path - path to drive i.e training or validataion or test
++ 2.want_aug - Takes 'YES' or 'NO' values to gather info wheter to augment data or not
++ returns images array and labels array
+## def prepare_data(drive_path,want_aug):
+
+### To create the covolutional neural network we use the following function:
+
+#this function creates a sequential  model and returns the model
++ The following are the parameters taken
+        + 1.fil=filter sizes for each layer(all the 5 convolution layers)
+        + 2.ker=kernel dimensions for each layer
+        + 3.activ=activation function for the dense layer 
+        + 4.batchnormalization=takes 'YES' or 'NO' which tells weather to normalize the data or not
+        + 5.dropout=the percentage of dropout scaled from 0 to 1
+        + 6.neurons=number of neurons for the dense layer
++ Returns the newely created CNN which can be used to compile and fit the data.
+# def create_CNN(fil,ker,activ,batchnormalisation,dropout,neurons):
+The data for the parameters of this function is gathered by command line arguments(optional)
+
+## Sweeps:
+def conlay(): This is the sweep function which takes in the sweep configuration parameter and creates CNN by calling create_CNN(fil,ker,activ,batchnormalisation,dropout,neurons) and the compiles and fit the model for each of the hyperparamter configuration.
 
 ## Question-4:
-#### Solution Approach:
-+ Split the training data in the ratio of 9:1.
-+ The standard training & test split of fashion_mnist has been used with 60000 training images and 20000 test images & labels.
-+ 10% shuffled training data was kept aside as validation data for the hyperparameter search i.e, 2000 images.
-+ wandb.sweeps() provides an functionality to comapre the different combinations of the hyperparameters for the training purpose.
-+ we are avail with 3 types of search strategies which are:
-    + grid
-    + random
-    + Bayes
-+ By considering the number of parameters given, there are totally 11664 combinations are possible.
-+ grid : It checks through all the possible combinations of hyperparameters. If there are n hyperparameters and m options of each hyperparameter. 
-  There will be m^n number of runs to see the final picture, hence grid search strategy wont work beacause it would be a computationally intensive. 
-+ There are 2 options left to choose.
-+ we chose random search. and we obtained a maximum validation accuracy of 89.95%. 
-+ after picking the sweep function, set the sweep function of wandb by setting up the different parameters in sweep configuration i.e, s_config().
-+ By using the code below we can see the results in our wandb project.\
-  ```wandb.agent(sweep_id,train)```.
+By taking the best hyperparameter configuration, we create, compile, fit and save the model in google drive for future usage 
+ # 4-b:
+ Here we have used function def getImages(): 
++ This function is used to accumulate 30 test pics from x_test where for each Image we gather 2 images i.e augmented and deaugmented Image.
++ Function returns a list of lists where each inner list contains augmented and deaugmented Image for a particular image def getImages():
+
+
++ later we have used the function to generate the samples and plot them.
 
 ## Question-5:
-#### Solution Approach:
-* The best accuracy across all the models is a validation accuracy of 89.95%.
-+ The graph containing a summary of validation accuracies for all the models is shown in the wandb report.
+In this question we have initially loaded the saved model from the drive and also prepared the test data. 
+later for the guided back-propagation we have used the following function:
+
+## def guidedprop(model,input):
+      + this takes input as
+      + 1.model- the saved model (best)
+      + 2.input-the data on which guided back propagation has to be done
+      + Returns input image and gradient image
+
+## Part-B:
+After loading teh required data we used the following functions:
+# def finetune(type,freez,epoch,optim,batch):
++ this function take the following parameters
+       + 1.type - the type of the pretrained model to be used
+       +2.freez- which layers to freez (-1 indicates freeizing all layers, 
+       + negative number 'n' indicates freezing n-1 layers from the back, and positive number 'p' freezing starting p-1 layers)
+       + 3.epochs - number of epochs to fit the model
+       + 4.batch - batchsize for training
+this creates , trains and returns the model 
+
+# sweep function for hyperparamater tuning:
+def hypertune():
 
 
-## Question-6:
-#### Solution Approach:
-+ Adam optimizer has provided the best val_accuracy in the above experiments, that has also reflected positively in the correlation table. Since the images that we are using       are black and white the input is definitely sparse, all the black pixels are represented with 0. So the idea used in rmsprop and adam to manipulate the learning rate             according to past updates, so that b does not undergo many updates in comparison to w checks out.
-+  Small batch size might help to generalize well but may not be able to converge to the global minima. Similarly large batch size may cost us in terms of cost also in terms        generalization.  So we need a batch size that is neither too small or too large this idea also checks out in correlation table with a small positive correlation value for        batch size. 
-
-##### Recommendations to attain 95% accuracy:
-+ In our assignment, we are using Fashion-MNIST dataset which contains images and we know that convolutional neural networks are good for datasets containing images in comparison to neural networks. 
-+ Using a CNN architecture that involves parameter sharing and local connectivity is bound to give improvements on this image classification task. Thus, using convolutional neural networks we can attain accuracy up to 95%. 
-
-## Question-7:
-#### Solution Approach:
-+ Get the best model.
-+ Report the best accuracy.
-+ Implement a function to calculate confusion matrix.
-+ Plot and integrate wandb to keep track using wandb.
-
-## Question-8:
-#### Solution Approach:
-+ First implement the squared error loss function.
-+ then get the ouput of the squared error loss and cross entropy.
-+ Integrate the outputs of squared error loss and cross entropy loss to see automatically generated plot on wandb.
-+ It can be seen that MSE loss function based run for the best model configuration clearly under performs compared to cross entropy loss function based configuration. 
-+ This is attributed to the inherent probabilistic nature of the problem statement which essentially tries to fit a probability distribution corresponding to the image              classification. Hence a probability based loss function such as cross entropy is more suitable than a distance function such as squared error.
-+ the accuracy would also depend on hyperparameter configurations as well. So it is believed that a hyper parameter search is again necessitated for a better and informed          comparison to be drawn. 
-
-## Question-10:
-#### Solution Approach:
-+ Since MNIST is a much simpler dataset, and a very similar image classification task with the same number of classes, the configurations of hyperparameters that worked well        for Fashion-MNIST is expected to work well for MNIST too.
-+ Although transfer learning from the pre trained Fashion MNIST dataset's best model configuration for the digits MNIST dataset is an extremely viable option for faster           training and better initialization of the network, in the current implementation of the code, transfer learning has not been used. 
+## Dataset:
+We have used iNaturalist[] dataset.
 
 ## Report:
 Report for this Assignment can be found [here](https://wandb.ai/pratap49/CS6910-assignment-1/reports/Assignment-1--VmlldzoxNjA0NjQ2).
